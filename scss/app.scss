@@ -78,3 +78,19 @@ footer {
     padding: 2em 2em;
   }
 }
+
+.mobile {
+  font-size: 16px;
+
+  .logo {
+    @include logo-font-size(20px);
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .start-page {
+    background-color: $ultramarined-color;
+  }
+}
