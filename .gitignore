@@ -5,3 +5,6 @@ css/app.css
 # Node.js files
 node_modules
 *.log
+
+# Deploy scripts
+*.bat
