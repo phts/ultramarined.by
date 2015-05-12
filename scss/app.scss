@@ -1,5 +1,10 @@
 $ultramarined-color: #572FCE;
 
+@mixin logo-font-size($font-size) {
+  font-size: $font-size;
+  letter-spacing: $font-size / 50;
+}
+
 body {
   margin: 0;
   background-color: white;
@@ -15,8 +20,7 @@ header {
   text-align: center;
 
   .logo {
-    font-size: 2em;
-    letter-spacing: 0.04em;
+    @include logo-font-size(2em);
   }
 }
 
@@ -58,11 +62,10 @@ footer {
 .start-page {
   top: 0; left: 0; bottom: auto; right: auto;
 
-  h1.band-name {
+  .logo {
+    @include logo-font-size(5em);
     margin: 0;
     color: white;
-    font-size: 5em;
-    letter-spacing: 0.1em;
 
     top: 50%; left: 50%;
     transform: translate(-50%, -60%);
