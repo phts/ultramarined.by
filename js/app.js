@@ -3,19 +3,13 @@ $(function() {
 
   $(window).on('scroll', function() {
     var scroll = $(window).scrollTop();
-    var startChange = startPage.height()/3
-    var stopChange = 2*startChange;
+    var startChange = 2*startPage.height()/3
     if (scroll > startChange) {
-      var value = (scroll - startChange) / (stopChange - startChange);
-      value = value>1 ? 0 : 1-value;
-      $('#overlay').css('opacity', value);
-    } else {
-      $('#overlay').css('opacity', 1);
-    }
-    if (scroll > stopChange) {
+      $('#overlay').addClass("hidden");
       $('#header').show();
     } else {
-      $('#header').hide();;
+      $('#overlay').removeClass("hidden");
+      $('#header').hide();
     }
   });
 });
