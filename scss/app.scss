@@ -112,6 +112,14 @@ body:not(.with-overlay) {
 body.mobile {
   font-size: 16px;
 
+  header {
+    display: none;
+  }
+
+  footer {
+    position: relative;
+  }
+
   .logo {
     @include logo-font-size(20px);
   }
