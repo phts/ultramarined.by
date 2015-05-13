@@ -13,16 +13,20 @@ $(function() {
   var $startPage = $("#start-page");
   var $overlay = $("#overlay");
 
-  function watchOverlay() {
-    var scroll = $(window).scrollTop();
-    var removeOverlayAt = 2 * $startPage.height() / 3;
-    if (scroll > removeOverlayAt) {
-      $body.removeClass("with-overlay");
-    } else {
-      $body.addClass("with-overlay");
+  if (!isMobile) {
+    var watchOverlay = function() {
+      var scroll = $(window).scrollTop();
+      var removeOverlayAt = 2 * $startPage.height() / 3;
+      if (scroll > removeOverlayAt) {
+        $body.removeClass("with-overlay");
+      } else {
+        $body.addClass("with-overlay");
+      }
     }
+    watchOverlay();
+    $(window).on('scroll', watchOverlay);
+  } else {
+    $body.removeClass("with-overlay");
   }
 
-  watchOverlay();
-  $(window).on('scroll', watchOverlay);
 });
