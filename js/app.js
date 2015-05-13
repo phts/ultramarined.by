@@ -12,17 +12,17 @@ $(function() {
 
   var $startPage = $("#start-page");
   var $overlay = $("#overlay");
-  var $header = $("#header");
 
-  $(window).on('scroll', function() {
+  function watchOverlay() {
     var scroll = $(window).scrollTop();
-    var startChange = 2 * $startPage.height() / 3;
-    if (scroll > startChange) {
-      $overlay.addClass("hidden");
-      $header.show();
+    var removeOverlayAt = 2 * $startPage.height() / 3;
+    if (scroll > removeOverlayAt) {
+      $body.removeClass("with-overlay");
     } else {
-      $overlay.removeClass("hidden");
-      $header.hide();
+      $body.addClass("with-overlay");
     }
-  });
+  }
+
+  watchOverlay();
+  $(window).on('scroll', watchOverlay);
 });
