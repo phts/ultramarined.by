@@ -5,8 +5,9 @@ if (isMobile) {
 }
 
 $(function() {
+  var $body = $("body");
   if (isMobile) {
-    $("html").addClass("mobile");
+    $body.addClass("mobile");
   }
 
   var $startPage = $("#start-page");
