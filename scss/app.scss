@@ -88,6 +88,10 @@ body.with-overlay {
   footer {
     display: none;
   }
+
+  .info-page {
+    visibility: hidden;
+  }
 }
 
 body:not(.with-overlay) {
