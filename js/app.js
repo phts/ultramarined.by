@@ -29,4 +29,15 @@ $(function() {
     $body.removeClass("with-overlay");
   }
 
+  $startPage.on('click', function() {
+    var red = Math.floor((Math.random() * 50) + 67);
+    var green = Math.floor((Math.random() * 50) + 27);
+    var blue = Math.floor((Math.random() * 50) + 186);
+    if (!isMobile) {
+      $overlay.css("background-color", "rgb("+red+", "+green+", "+blue+")");
+    } else {
+      $startPage.css("background-color", "rgb("+red+", "+green+", "+blue+")");
+    }
+  });
+
 });
