@@ -11,7 +11,7 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
-header {
+.page-header {
   position: fixed;
   width: 100%; height: 2em;
   top: 0;
@@ -24,7 +24,7 @@ header {
   }
 }
 
-footer {
+.page-footer {
   position: fixed;
   width: 100%; height: 2em;
   bottom: 0;
@@ -49,13 +49,13 @@ footer {
   display: block;
 }
 
-.page {
+.slide {
   width: 100%;
   height: 100vh;
   position: relative;
 }
 
-.start-page {
+.start-slide {
   top: 0; left: 0; bottom: auto; right: auto;
 
   .logo {
@@ -69,8 +69,8 @@ footer {
   }
 }
 
-.info-page {
-  .page-content {
+.info-slide {
+  .slide-content {
     padding: 2em 2em;
   }
 }
@@ -81,15 +81,15 @@ body.with-overlay {
     opacity: 1;
   }
 
-  header {
+  .page-header {
     display: none;
   }
 
-  footer {
+  .page-footer {
     display: none;
   }
 
-  .info-page {
+  .info-slide {
     visibility: hidden;
   }
 }
@@ -100,11 +100,11 @@ body:not(.with-overlay) {
     opacity: 0;
   }
 
-  header {
+  .page-header {
     display: block;
   }
 
-  footer {
+  .page-footer {
     display: block;
   }
 }
@@ -112,11 +112,11 @@ body:not(.with-overlay) {
 body.mobile {
   font-size: 16px;
 
-  header {
+  .page-header {
     display: none;
   }
 
-  footer {
+  .page-footer {
     position: relative;
   }
 
@@ -128,7 +128,7 @@ body.mobile {
     display: none;
   }
 
-  .start-page {
+  .start-slide {
     background-color: $ultramarined-color;
   }
 }
