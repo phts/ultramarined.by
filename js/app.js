@@ -11,33 +11,18 @@ $(function() {
   }
 
   var $startSlide = $("#start-slide");
-  var $overlay = $("#overlay");
+  var $contactsSlide = $("#contacts-slide");
 
-  if (!isMobile) {
-    var watchOverlay = function() {
-      var scroll = $(window).scrollTop();
-      var removeOverlayAt = 2 * $startSlide.height() / 3;
-      if (scroll > removeOverlayAt) {
-        $body.removeClass("with-overlay");
-      } else {
-        $body.addClass("with-overlay");
-      }
-    }
-    watchOverlay();
-    $(window).on('scroll', watchOverlay);
-  } else {
-    $body.removeClass("with-overlay");
-  }
-
-  $startSlide.on('click', function() {
-    var red = Math.floor((Math.random() * 50) + 67);
-    var green = Math.floor((Math.random() * 50) + 27);
-    var blue = Math.floor((Math.random() * 50) + 186);
-    if (!isMobile) {
-      $overlay.css("background-color", "rgb("+red+", "+green+", "+blue+")");
+  var watchScroll = function() {
+    var scroll = $(window).scrollTop();
+    var startSlideHideAt = $startSlide.height();
+    if (scroll > $contactsSlide.position().top-($contactsSlide.height()/4)) {
+      $body.addClass("header-shown footer-shown");
     } else {
-      $startSlide.css("background-color", "rgb("+red+", "+green+", "+blue+")");
+      $body.removeClass("header-shown footer-shown");
     }
-  });
+  }
+  watchScroll();
+  $(window).on('scroll', watchScroll);
 
 });

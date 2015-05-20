@@ -5,6 +5,17 @@ $ultramarined-color: #572FCE;
   letter-spacing: $font-size / 50;
 }
 
+@mixin centered {
+  @include transform(translate(-50%, -60%));
+  top: 50%; left: 50%;
+  position: absolute;
+}
+
+@mixin transform($func) {
+  transform: $func;
+  -ms-transform: $func;
+}
+
 body {
   margin: 0;
   background-color: white;
@@ -16,7 +27,7 @@ body {
   width: 100%; height: 2em;
   top: 0;
   color: $ultramarined-color;
-  z-index: 1;
+  z-index: -1;
   text-align: center;
 
   .logo {
@@ -30,29 +41,28 @@ body {
   bottom: 0;
   color: $ultramarined-color;
   text-align: center;
-  z-index: 1;
+  z-index: -1;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s linear;
 }
 
 .logo {
   text-transform: uppercase;
 }
 
-.overlay {
-  background-color: $ultramarined-color;
-  opacity: 1;
-  transition: opacity 0.5s ease-out;
-
-  z-index: -1;
-  position: fixed;
-  left: 0px; top: 0px;
-  width: 100%; height: 100%;
-  display: block;
-}
-
 .slide {
   width: 100%;
   height: 100vh;
   position: relative;
+
+  &.inverted {
+    background-color: $ultramarined-color;
+    color: white;
+  }
+  .slide-content {
+    padding: 2em;
+  }
 }
 
 .start-slide {
@@ -60,75 +70,149 @@ body {
 
   .logo {
     @include logo-font-size(5em);
-    margin: 0;
-    color: white;
-
-    top: 50%; left: 50%;
-    transform: translate(-50%, -60%);
-    position: absolute;
+    @include centered;
+    text-align: center;
+    color: $ultramarined-color;
   }
 }
 
 .info-slide {
-  .slide-content {
-    padding: 2em 2em;
+  height: auto;
+
+  ul.musicians {
+    list-style: none;
+    width: 825px;
+    margin: 0 auto; padding: 0;
+
+    li {
+      position: relative;
+
+      &:first-child,
+      &:nth-child(2) {
+        margin-bottom: 20px;
+      }
+
+      &:nth-child(odd) {
+        float: left;
+        margin-right: 20px;
+        .musician-name {
+          margin-left: -20px;
+          text-align: right;
+        }
+        .musician-img {
+          float: right;
+          margin-left: 100px;
+        }
+      }
+
+      &:nth-child(even) {
+        .musician-name {
+          margin-left: -80px;
+        }
+        .musician-img {
+          margin-right: 100px;
+        }
+      }
+
+      & * {
+        vertical-align: middle;
+      }
+    }
+  }
+  .musician-img {
+    width: 300px; height: 400px;
+  }
+  .musician-name {
+    width: 100px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
   }
 }
 
-body.with-overlay {
+.contacts-slide {
+  ul.contacts {
+    @include centered;
+    list-style: none;
+    margin: 0; padding: 0;
 
-  .overlay {
+    li {
+      margin: 0 0 10px;
+
+      & * {
+        vertical-align: middle;
+      }
+    }
+
+    .social-icon {
+      width: 50px;
+      margin: 0 10px 0 0;
+      border: 0 none;
+    }
+  }
+}
+
+body.header-shown {
+  .page-header {
+    display: block;
+  }
+}
+
+body.footer-shown {
+  .page-footer {
     opacity: 1;
   }
+}
 
+body:not(.header-shown) {
   .page-header {
     display: none;
   }
+}
 
+body:not(.footer-shown) {
   .page-footer {
-    display: none;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .page-header,
+  .start-slide {
+    .logo {
+      @include logo-font-size(2em);
+    }
+  }
+
+  .slide-content {
+    padding: 0.5em;
   }
 
   .info-slide {
-    visibility: hidden;
+    ul.musicians {
+      width: 300px;
+      li {
+        &:nth-child(odd) {
+          float: none;
+          .musician-name {
+            left: 0;
+          }
+          .musician-img {
+            float: none;
+          }
+        }
+      }
+    }
+    .musician-img {
+      width: 150px; height: 200px;
+    }
   }
 }
 
-body:not(.with-overlay) {
+@media (max-width: 500px) {
 
-  .overlay {
-    opacity: 0;
-  }
-
-  .page-header {
-    display: block;
-  }
-
-  .page-footer {
-    display: block;
-  }
-}
-
-body.mobile {
-  font-size: 16px;
-
-  .page-header {
+  .social-text {
     display: none;
-  }
-
-  .page-footer {
-    position: relative;
-  }
-
-  .logo {
-    @include logo-font-size(20px);
-  }
-
-  .overlay {
-    display: none;
-  }
-
-  .start-slide {
-    background-color: $ultramarined-color;
   }
 }
