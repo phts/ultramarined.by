@@ -50,10 +50,10 @@ body {
   }
 
   .soon-wrapper {
-    @include transform(rotate(22deg));
+    @include transform(rotate(-8deg));
     position: absolute;
     top: 1.5em;
-    left: 60%;
+    left: 33%;
     border-radius: 7px;
     padding: 3px;
     background-color: #E7BD00;
