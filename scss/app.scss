@@ -52,27 +52,45 @@ body {
   .soon-wrapper {
     @include transform(rotate(-8deg));
     position: absolute;
-    top: 1.5em;
-    left: 33%;
+    top: 124px;
+    left: 403px;
     border-radius: 7px;
     padding: 3px;
     background-color: #E7BD00;
     color: black;
+    z-index: -1;
+  }
+  .soon-wrapper:after, .soon-wrapper:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  .soon-wrapper:after {
+    border-color: rgba(231, 189, 0, 0);
+    border-bottom-color: white;
+    border-width: 54px;
+    margin-left: -54px;
+  }
+  .soon-wrapper:before {
+    border-color: rgba(0, 0, 0, 0);
+    border-bottom-color: #000000;
+    border-width: 56px;
+    margin-left: -56px;
   }
 
   .soon-content {
     display: block;
     border: 2px black solid;
     border-radius: 5px;
-    padding: 0.5em 0.3em;
+    padding: 0.5em;
     font-size: 1.2em;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-  }
-
-  .soon-content:before,
-  .soon-content:after {
-    content: "\B7"
   }
 }
 
@@ -83,8 +101,16 @@ body {
       @include logo-font-size(2em);
     }
     .soon-wrapper {
-      top: 0;
-      left: 30%;
+      top: 62px;
+      left: 89px;
+    }
+    .soon-wrapper:after {
+      border-width: 34px;
+      margin-left: -34px;
+    }
+    .soon-wrapper:before {
+      border-width: 36px;
+      margin-left: -36px;
     }
     .soon-content {
       font-size: 0.7em;
