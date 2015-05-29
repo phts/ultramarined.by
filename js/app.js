@@ -1,6 +1,7 @@
 $(function() {
   var $body = $("body");
   var $startSlide = $("#start-slide");
+  var $infoSlide = $("#info-slide");
   var $contactsSlide = $("#contacts-slide");
 
   var watchScroll = function() {
@@ -14,5 +15,12 @@ $(function() {
   }
   watchScroll();
   $(window).on('scroll', watchScroll);
+
+  $("#arrow-hint").on('click', function() {
+    $('html, body').animate({
+      scrollTop: $infoSlide.offset().top
+    }, 500);
+    return false;
+  });
 
 });
