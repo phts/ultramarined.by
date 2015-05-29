@@ -73,18 +73,19 @@ body {
   }
 
   @keyframes arrow-hint-img {
-    0%   {top: 0px; opacity: 0;}
-    10%  {top: 5px; opacity: 1;}
-    90%  {top: 25px; opacity: 1;}
-    100% {top: 30px; opacity: 0;}
+    0%   {bottom: 30px; opacity: 0;}
+    10%  {bottom: 25px; opacity: 1;}
+    90%  {bottom: 5px; opacity: 1;}
+    100% {bottom: 0px; opacity: 0;}
   }
   .arrow-hint {
     position: fixed;
-    left: 50%; bottom: 60px;
+    left: 50%; bottom: 30px;
     display: block;
     width: 24px; height: 50px;
     img {
       position: absolute;
+      bottom: 0;
       animation: 3s linear 0s normal none infinite running arrow-hint-img;
       border: 0 none;
     }
@@ -196,6 +197,12 @@ body:not(.contacts-slide-shown) {
 
   .slide-content {
     padding: 0.5em;
+  }
+
+  .start-slide {
+    .arrow-hint {
+      bottom: 40px;
+    }
   }
 
   .info-slide {
