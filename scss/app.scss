@@ -188,6 +188,10 @@ body:not(.contacts-slide-shown) {
 
 @media (max-width: 900px) {
 
+  .slide {
+    height: 600px; height: 100vh;
+  }
+
   .slide-header,
   .start-slide {
     .logo {
@@ -206,6 +210,7 @@ body:not(.contacts-slide-shown) {
   }
 
   .info-slide {
+    height: auto;
     ul.musicians {
       width: 300px;
       li {
