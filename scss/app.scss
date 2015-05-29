@@ -216,6 +216,18 @@ body:not(.contacts-slide-shown) {
   .info-slide {
     height: auto;
     ul.musicians {
+      width: 550px;
+    }
+    .musician-img {
+      width: 150px; height: 200px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+
+  .info-slide {
+    ul.musicians {
       width: 300px;
       li {
         &:nth-child(odd) {
@@ -228,9 +240,6 @@ body:not(.contacts-slide-shown) {
           }
         }
       }
-    }
-    .musician-img {
-      width: 150px; height: 200px;
     }
   }
 }
