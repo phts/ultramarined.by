@@ -17,6 +17,10 @@ $ultramarined-color: #572FCE;
   -webkit-transform: $func;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   background-color: white;
