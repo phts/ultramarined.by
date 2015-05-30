@@ -97,7 +97,7 @@ body {
 }
 
 .info-slide {
-  height: auto;
+  height: auto !important;
 
   ul.musicians {
     list-style: none;
@@ -214,7 +214,6 @@ body:not(.contacts-slide-shown) {
   }
 
   .info-slide {
-    height: auto;
     ul.musicians {
       width: 550px;
     }
