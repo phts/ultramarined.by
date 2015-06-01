@@ -99,21 +99,16 @@ body {
 
     li {
       position: relative;
-
-      &:first-child,
-      &:nth-child(2) {
-        margin-bottom: 20px;
-      }
+      display: inline-block;
 
       &:nth-child(odd) {
-        float: left;
         margin-right: 20px;
         .musician-name {
+          left: 0;
           margin-left: -20px;
           text-align: right;
         }
         .musician-img {
-          float: right;
           margin-left: 100px;
         }
       }
@@ -232,17 +227,6 @@ body:not(.contacts-slide-shown) {
   .info-slide {
     ul.musicians {
       width: 260px;
-      li {
-        &:nth-child(odd) {
-          float: none;
-          .musician-name {
-            left: 0;
-          }
-          .musician-img {
-            float: none;
-          }
-        }
-      }
     }
   }
 }
