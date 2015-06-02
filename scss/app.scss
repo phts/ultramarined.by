@@ -143,6 +143,15 @@ body {
   }
 }
 
+.video-slide {
+  .video-button {
+    @include centered;
+    width: 200px; height: 100px;
+    background-color: yellow;
+    cursor: pointer;
+  }
+}
+
 .contacts-slide {
   ul.contacts {
     @include centered;

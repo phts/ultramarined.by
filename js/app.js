@@ -4,7 +4,14 @@ function detectBrowsers($body) {
   }
 }
 
+function readMediaJson() {
+  $.getJSON("../media.json", function(data) {
+    console.log(data);
+  });
+}
+
 $(function() {
+  readMediaJson();
   var $body = $("body");
   detectBrowsers($body);
 
@@ -29,6 +36,11 @@ $(function() {
       scrollTop: $infoSlide.offset().top
     }, 500);
     return false;
+  });
+
+  $("#video-button").on("click", function() {
+    $(this).parent().append("<iframe width='560' height='315' src='https://www.youtube.com/embed/aWQwNDEkLS8' frameborder='0' allowfullscreen></iframe>");
+    $(this).hide();
   });
 
 });

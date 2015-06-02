@@ -1,0 +1,8 @@
+{
+  "photos": [
+    "http://url/to/photo1.jpg",
+    "http://url/to/photo2.jpg",
+    "http://url/to/photo3.jpg"
+  ],
+  "video": "youtube-video-id"
+}
