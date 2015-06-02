@@ -11,6 +11,14 @@ $ultramarined-color: #572FCE;
   position: absolute;
 }
 
+@mixin centered-fallback($top-bottom-margins: 1em) {
+  @include transform(none);
+  position: relative;
+  top: auto; left: auto;
+  margin: $top-bottom-margins auto;
+  display: table;
+}
+
 @mixin transform($func) {
   transform: $func;
   -ms-transform: $func;
@@ -248,11 +256,34 @@ body:not(.contacts-slide-shown) {
     height: auto;
 
     ul.contacts {
-      @include transform(none);
+      @include centered-fallback;
+    }
+    .slide-header,
+    .slide-footer {
       position: relative;
-      top: auto; left: auto;
-      margin: 1em auto;
-      display: table
+      opacity: 1 !important;
+    }
+  }
+}
+
+.opera-mini {
+
+  .slide {
+    height: auto;
+  }
+
+  .start-slide {
+    .logo {
+      @include centered-fallback(0.5em);
+    }
+    .arrow-hint {
+      display: none;
+    }
+  }
+
+  .contacts-slide {
+    ul.contacts {
+      @include centered-fallback;
     }
     .slide-header,
     .slide-footer {

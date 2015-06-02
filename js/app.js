@@ -1,5 +1,13 @@
+function detectBrowsers($body) {
+  if (!!/Opera Mini/i.test(navigator.userAgent)) {
+    $body.addClass("opera-mini");
+  }
+}
+
 $(function() {
   var $body = $("body");
+  detectBrowsers($body);
+
   var $startSlide = $("#start-slide");
   var $infoSlide = $("#info-slide");
   var $contactsSlide = $("#contacts-slide");
