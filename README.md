@@ -1,3 +1,3 @@
 # ultramarined.by
 
-Sources of [Ultramarined](http://ultramarined.by) band's official website.
+This repository contains source code of Ultramarined band's [official website](http://ultramarined.by).
