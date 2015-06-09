@@ -1,8 +1,15 @@
 $ultramarined-color: #572FCE;
 
+$font-family: "Times New Roman", Times, serif;
+$logo-font-family: "Ledger", $font-family;
+
 @mixin logo-font-size($font-size) {
   font-size: $font-size;
   letter-spacing: $font-size / 50;
+}
+
+@mixin logo-font-family {
+  font-family: $logo-font-family;
 }
 
 @mixin centered {
@@ -32,10 +39,12 @@ html {
 body {
   margin: 0;
   background-color: white;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: $font-family;
+  font-size: 16px;
 }
 
 .logo {
+  @include logo-font-family;
   text-transform: uppercase;
 }
 .logo-link {
@@ -71,7 +80,7 @@ body {
   background-color: transparent;
 
   .logo {
-    @include logo-font-size(5em);
+    @include logo-font-size(4em);
     @include centered;
     text-align: center;
     color: $ultramarined-color;
@@ -136,6 +145,7 @@ body {
     vertical-align: middle;
   }
   .musician-name {
+    @include logo-font-family;
     width: 100px;
     display: inline-block;
     position: absolute;
@@ -208,10 +218,10 @@ body:not(.contacts-slide-shown) {
     height: 600px; height: 100vh;
   }
 
-  .slide-header,
+  .contacts-slide .slide-header,
   .start-slide {
     .logo {
-      @include logo-font-size(2em);
+      @include logo-font-size(1.5em);
     }
   }
 
