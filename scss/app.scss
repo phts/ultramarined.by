@@ -188,6 +188,11 @@ body.contacts-slide-shown {
   .slide-footer {
     opacity: 1;
   }
+  .start-slide {
+    .arrow-hint {
+      display: none;
+    }
+  }
 }
 
 body:not(.contacts-slide-shown) {
